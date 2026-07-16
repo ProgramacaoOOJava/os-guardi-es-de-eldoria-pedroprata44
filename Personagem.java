@@ -1,5 +1,5 @@
-// Molde para Personagem
-public class Personagem {
+// super molde Personagem
+public abstract class Personagem {
     // Propriedades
     String nome;
     String classe;
@@ -7,8 +7,7 @@ public class Personagem {
     int pontosDeVida;
     double poderBase;
 
-    // Construtor
-    // This.propriedade da instância
+    // Super construtor
     public Personagem(String nome, String classe, int nivel, int pontosDeVida, double poderBase) {
         this.nome = nome;
         this.classe = classe;
@@ -17,7 +16,7 @@ public class Personagem {
         this.poderBase = poderBase;
     }
 
-    // Método para exibir propriedades com formatação
+    // Método compartilhado
     public void exibirStatus() {
         System.out.println();
         System.out.println("--- Status do Personagem ---");
@@ -28,5 +27,8 @@ public class Personagem {
         System.out.println("Poder base: " + poderBase);
         System.out.println();
     }
+
+    // Método que pode sofrer override nos moldes filhos
+    public void usarHabilidadeEspecial(){}
 }
 

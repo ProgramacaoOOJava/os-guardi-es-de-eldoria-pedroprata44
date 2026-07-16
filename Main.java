@@ -1,11 +1,21 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        // Instâncias do molde Personagem
-        Personagem heroi1 = new Personagem("Arthus", "Guerreiro", 1, 100, 10.5);
-        Personagem heroi2 = new Personagem("Kratos", "Guerreiro", 10, 200, 100.9);
+        //Lista de filhos do super molde Personagem
+        ArrayList<Personagem> personagens = new ArrayList<>();
 
-        // Exibe as propriedades de cada instância
-        heroi1.exibirStatus();
-        heroi2.exibirStatus();
+        // Aqui não podemos mais adicionar Personagem pois é um molde abstrato
+        // Podemos apenas adicionar moldes filhos como Guerreiro, Mago ou qualquer molde que extenda esse super
+        personagens.add(new Guerreiro("Kratos","Guerreiro", 1, 10, 2));
+        personagens.add(new Mago("Odin", "Mago", 10, 100, 500.00));
+
+        // Percorremos a lista com foreach
+        for (Personagem personagem : personagens) {
+            // Para cada da lista exibe status default do super molde
+            personagem.exibirStatus();
+            // E exibe método override de habilidade
+            personagem.usarHabilidadeEspecial();
+        }
     }
 }
