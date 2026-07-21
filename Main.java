@@ -1,21 +1,19 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
-        //Lista de filhos do super molde Personagem
-        ArrayList<Personagem> personagens = new ArrayList<>();
+        // --- GRUPO 1: Aliança da Luz ---
+        var grupoLuz = new Grupo();
+        grupoLuz.adicionarPersonagem(new Guerreiro("Arthur", "Guerreiro", 120, 1200, 600));
+        grupoLuz.adicionarPersonagem(new Mago("Merlin", "Mago", 150, 900, 850));
+        grupoLuz.adicionarPersonagem(new Guerreiro("Lancelot", "Guerreiro", 110, 1100, 550));
 
-        // Aqui não podemos mais adicionar Personagem pois é um molde abstrato
-        // Podemos apenas adicionar moldes filhos como Guerreiro, Mago ou qualquer molde que extenda esse super
-        personagens.add(new Guerreiro("Kratos","Guerreiro", 1, 10, 2));
-        personagens.add(new Mago("Odin", "Mago", 10, 100, 500.00));
+        // --- GRUPO 2: Horda das Sombras ---
+        var grupoSombras = new Grupo();
+        grupoSombras.adicionarPersonagem(new Guerreiro("Malakor", "Guerreiro", 130, 1300, 700));
+        grupoSombras.adicionarPersonagem(new Mago("Morgana", "Mago", 140, 950, 900));
+        grupoSombras.adicionarPersonagem(new Guerreiro("Vorgath", "Guerreiro", 125, 1400, 650));
 
-        // Percorremos a lista com foreach
-        for (Personagem personagem : personagens) {
-            // Para cada da lista exibe status default do super molde
-            personagem.exibirStatus();
-            // E exibe método override de habilidade
-            personagem.usarHabilidadeEspecial();
-        }
+        // --- CRIAÇÃO E EXECUÇÃO DA ARENA ---
+        Arena arena = new Arena();
+        arena.batalharGrupos(grupoLuz, grupoSombras);
     }
 }
